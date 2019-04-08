@@ -1,5 +1,6 @@
 ### Laravel ###
-/vendor/
+/vendor
+/.idea
 node_modules/
 npm-debug.log
 yarn-error.log
@@ -18,5 +19,5 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 
-#phpStorm
-/.idea
+# database
+database/database.sqlite
