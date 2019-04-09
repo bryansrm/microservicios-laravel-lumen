@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use App\Traits\ApiResponser;
-use Laravel\Lumen\Http\Request;
-use Laravel\Lumen\Http\Response;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class BookController extends Controller
 {
@@ -71,14 +71,15 @@ class BookController extends Controller
     public function update(Request $request, $book){
 
         $rules = [
-            'name' => 'max:255',
-            'gender' => 'max:255|in:male,female',
-            'country' => 'max:255',
+            'title' => 'max:255',
+            'description' => 'max:255',
+            'price' => 'min:1',
+            'author_id' => 'min:1',
         ];
 
         $this->validate($request, $rules);
 
-        $book = Author::findOrFail($book);
+        $book = Book::findOrFail($book);
 
         $book->fill($request->all());
 
@@ -96,7 +97,7 @@ class BookController extends Controller
      * @return Illuminate\Http\Response
      */
     public function destroy($book){
-        $book = Author::findOrFail($book);
+        $book = Book::findOrFail($book);
 
         $book-> delete();
 
