@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use App\Traits\ApiResponser;
+use Laravel\Lumen\Http\Request;
+use Laravel\Lumen\Http\Response;
 
 class BookController extends Controller
 {
@@ -38,9 +40,9 @@ class BookController extends Controller
     public function store(Request $request){
         $rules = [
             'title' => 'required|max:255',
-            'description' => 'required|max:255|in:male,female',
-            'price' => 'required|max:255',
-            'author_id' => 'required|max:255',
+            'description' => 'required|max:255',
+            'price' => 'required|min:1',
+            'author_id' => 'required|min:1',
         ];
 
         $this->validate($request, $rules);
