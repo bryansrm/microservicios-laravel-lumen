@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\service\AuthorService;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -9,14 +10,16 @@ use Illuminate\Http\Response;
 class AuthorController extends Controller
 {
     use ApiResponser;
+
+    public $authorService;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(AuthorService $authorService)
     {
-        //
+        $this->authorService = $authorService;
     }
 
     /**
