@@ -23,12 +23,12 @@ class BookController extends Controller
     }
 
     /**
-     * Show a list all authors.
+     * Show a list all books.
      *
      * @return Illuminate\Http\Response
      */
     public function index(){
-
+        return $this->successResponse($this->bookService->getBooks());
     }
 
     /**
@@ -37,7 +37,7 @@ class BookController extends Controller
      * @return Illuminate\Http\Response
      */
     public function store(Request $request){
-
+        return $this->successResponse($this->bookService->createBook($request->all()), Response::HTTP_CREATED);
     }
 
     /**
@@ -46,7 +46,7 @@ class BookController extends Controller
      * @return Illuminate\Http\Response
      */
     public function show($book){
-
+        return $this->successResponse($this->bookService->getOneBook($book));
     }
 
     /**
@@ -55,7 +55,7 @@ class BookController extends Controller
      * @return Illuminate\Http\Response
      */
     public function update(Request $request, $book){
-
+        return $this->successResponse($this->bookService->editBook($request->all(), $book));
     }
 
     /**
@@ -64,7 +64,7 @@ class BookController extends Controller
      * @return Illuminate\Http\Response
      */
     public function destroy($book){
-
+        return $this->successResponse($this->bookService->deleteBook($book));
     }
 
 
