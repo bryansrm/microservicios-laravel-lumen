@@ -1,6 +1,6 @@
 <?php
 
-namespace App\service;
+namespace App\Services;
 
 use App\Traits\ConsumesExternalService;
 
@@ -12,6 +12,6 @@ class BookService
 
     public function __construct()
     {
-        $this->baseUri = config('services.books.base_uri');
+        $this->baseUri = config('Services.books.base_uri');
     }
 }

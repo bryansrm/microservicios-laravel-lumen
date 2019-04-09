@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\service\AuthorService;
+use App\Services\AuthorService;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -28,7 +28,7 @@ class AuthorController extends Controller
      * @return Illuminate\Http\Response
      */
     public function index(){
-
+        return $this->successResponse($this->authorService->getAuthors());
     }
 
     /**
